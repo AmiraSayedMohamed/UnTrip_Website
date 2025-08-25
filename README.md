@@ -1,3 +1,17 @@
+
+# UnTrip Website
+
+UnTrip is a modern travel experiences platform where users can discover, book, and pay for unique activities and tours. The project features:
+
+- Browse and filter authentic experiences by category
+- Add experiences to a cart with persistent state
+- Book and pay for experiences using PayPal integration
+- User authentication (signup/login)
+- Responsive, modern UI with React, TypeScript, Vite, and Tailwind CSS
+- Toast notifications and modal dialogs for a seamless user experience
+
+This repository contains the full frontend codebase for the UnTrip travel platform.
+
 # Welcome to your Lovable project
 
 ## Project info
