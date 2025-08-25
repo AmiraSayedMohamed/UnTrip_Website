@@ -1,6 +1,6 @@
 
 # UnTrip Website
-![website picture]()
+![website picture](https://github.com/AmiraSayedMohamed/UnTrip_Website/blob/main/UntripWebsite.jpg)
 UnTrip is a modern travel experiences platform where users can discover, book, and pay for unique activities and tours. The project features:
 
 - Browse and filter authentic experiences by category
