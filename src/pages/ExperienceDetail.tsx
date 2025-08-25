@@ -22,7 +22,17 @@ const ExperienceDetail: React.FC<ExperienceDetailProps> = ({ experiences }) => {
 
   return (
     <div className="max-w-4xl mx-auto py-12 px-4 flex flex-col md:flex-row gap-8">
-      <img src={experience.image} alt={experience.title} className="w-full md:w-1/2 h-96 object-cover rounded-lg shadow" />
+      {experience.images ? (
+        <div className="w-full md:w-1/2">
+          <div className="flex gap-2 overflow-x-auto">
+            {experience.images.map((img: string, idx: number) => (
+              <img key={idx} src={img} alt={experience.title + ' ' + (idx+1)} className="h-64 w-auto object-cover rounded-lg shadow" />
+            ))}
+          </div>
+        </div>
+      ) : (
+        <img src={experience.image} alt={experience.title} className="w-full md:w-1/2 h-96 object-cover rounded-lg shadow" />
+      )}
       <div className="flex-1 flex flex-col gap-6">
         <h1 className="text-3xl font-bold text-foreground">{experience.title}</h1>
         <div className="text-lg text-muted-foreground">{experience.location} • {experience.duration}</div>
