@@ -15,7 +15,7 @@ This repository contains the full frontend codebase for the UnTrip travel platfo
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/4f19c9a1-64cc-43c0-8635-96f2f553a0d4
+**URL**: https://un-trip-website.vercel.app
 
 
 
