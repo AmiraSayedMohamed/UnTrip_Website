@@ -379,7 +379,7 @@ const Index = () => {
       <BecomeCuratorSection />
       {/* PayPal payment button for users */}
       <div className="flex justify-center my-8">
-        <PayPalButton />
+  <PayPalButton amount={10} />
       </div>
       <Footer />
     </div>
