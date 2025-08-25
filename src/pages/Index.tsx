@@ -1,3 +1,11 @@
+import cookingImg from '@/assets/Traditional Eastern Cooking Workshop.png';
+import jewelryImg from '@/assets/Simple Jewelry Making Workshop.png';
+import recyclingImg from '@/assets/Recycling Workshop.png';
+import potteryImg from '@/assets/Pottery Workshop.png';
+import naturePhotoImg from '@/assets/Nature Photography Workshop.png';
+import handEmbroideryImg from '@/assets/Hand Embroidery Workshop.png';
+import glassPaintingImg from '@/assets/Glass Painting Workshop.png';
+import calligraphyImg from '@/assets/Arabic Calligraphy Workshop.png';
 import React, { useState } from 'react';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
@@ -31,6 +39,94 @@ import Footer from '@/components/Footer';
 import PayPalButton from '@/components/PayPalButton';
 
 const experiences = [
+  {
+    title: "Traditional Eastern Cooking Workshop",
+    location: "Cairo, Egypt",
+    duration: "2.5H",
+    price: 27,
+    currency: "$",
+    image: cookingImg,
+    rating: 4.8,
+    reviewCount: 14,
+    category: 'foodies',
+  },
+  {
+    title: "Simple Jewelry Making Workshop",
+    location: "Cairo, Egypt",
+    duration: "2H",
+    price: 21,
+    currency: "$",
+    image: jewelryImg,
+    rating: 4.6,
+    reviewCount: 10,
+    category: 'artistic',
+  },
+  {
+    title: "Recycling Workshop",
+    location: "Cairo, Egypt",
+    duration: "2H",
+    price: 19,
+    currency: "$",
+    image: recyclingImg,
+    rating: 4.5,
+    reviewCount: 8,
+    category: 'artistic',
+  },
+  {
+    title: "Pottery Workshop",
+    location: "Cairo, Egypt",
+    duration: "2H",
+    price: 24,
+    currency: "$",
+    image: potteryImg,
+    rating: 4.8,
+    reviewCount: 13,
+    category: 'artistic',
+  },
+  {
+    title: "Nature Photography Workshop",
+    location: "Cairo, Egypt",
+    duration: "2H",
+    price: 22,
+    currency: "$",
+    image: naturePhotoImg,
+    rating: 4.7,
+    reviewCount: 11,
+    category: 'artistic',
+  },
+  {
+    title: "Hand Embroidery Workshop",
+    location: "Cairo, Egypt",
+    duration: "2H",
+    price: 18,
+    currency: "$",
+    image: handEmbroideryImg,
+    rating: 4.6,
+    reviewCount: 9,
+    category: 'artistic',
+  },
+  {
+    title: "Glass Painting Workshop",
+    location: "Cairo, Egypt",
+    duration: "2H",
+    price: 20,
+    currency: "$",
+    image: glassPaintingImg,
+    rating: 4.7,
+    reviewCount: 10,
+    category: 'artistic',
+  },
+  {
+    title: "Arabic Calligraphy Workshop",
+    location: "Cairo, Egypt",
+    duration: "2H",
+    price: 15,
+    currency: "$",
+    image: calligraphyImg,
+    rating: 4.8,
+    reviewCount: 17,
+    category: 'artistic',
+  },
   {
     title: "ART3 Workshop",
     location: "Cairo, Egypt",
