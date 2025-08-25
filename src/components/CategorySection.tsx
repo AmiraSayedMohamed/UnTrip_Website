@@ -5,7 +5,7 @@ import outdoorsyImg from '@/assets/category-outdoorsy.jpg';
 import artisticImg from '@/assets/category-artistic.jpg';
 import sightseeingImg from '@/assets/category-sightseeing.jpg';
 
-const CategorySection = () => {
+const CategorySection = ({ setSelectedCategory }: { setSelectedCategory: (cat: string) => void }) => {
   const { t } = useLanguage();
 
   const categories = [
@@ -36,6 +36,7 @@ const CategorySection = () => {
             <div 
               key={category.key}
               className="group cursor-pointer"
+              onClick={() => setSelectedCategory(category.key)}
             >
               <div className="relative overflow-hidden rounded-lg aspect-square mb-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <img 

@@ -1,4 +1,6 @@
+
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Heart, MapPin, Clock, Users } from 'lucide-react';
 import { useLanguage } from './LanguageProvider';
 
@@ -11,6 +13,7 @@ interface ExperienceCardProps {
   image: string;
   rating?: number;
   reviewCount?: number;
+  id: number;
 }
 
 const ExperienceCard: React.FC<ExperienceCardProps> = ({
@@ -21,12 +24,18 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   currency,
   image,
   rating,
-  reviewCount
+  reviewCount,
+  id
 }) => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/experience/${id}`);
+  };
 
   return (
-    <div className="group cursor-pointer bg-card rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
+    <div className="group cursor-pointer bg-card rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:scale-[1.02]" onClick={handleClick}>
       <div className="relative overflow-hidden">
         <img 
           src={image} 

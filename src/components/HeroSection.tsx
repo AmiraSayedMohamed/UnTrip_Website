@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
+
+import { Calendar } from '@/components/ui/calendar';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Search, ChevronDown, Calendar } from 'lucide-react';
+import { Search, ChevronDown, Calendar as CalendarIcon } from 'lucide-react';
 import { useLanguage } from './LanguageProvider';
 import heroImage from '@/assets/hero-bg.jpg';
 
-const HeroSection = () => {
+const HeroSection = ({ setSelectedCategory }: { setSelectedCategory: (cat: string) => void }) => {
   const { t } = useLanguage();
   const [showCategories, setShowCategories] = useState(false);
+  const [showCalendar, setShowCalendar] = useState(false);
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
+  const [durationFilter, setDurationFilter] = useState<'exact' | '+1' | '+5' | '+15'>('exact');
 
   const categories = [
     'foodies',
@@ -47,10 +52,37 @@ const HeroSection = () => {
           
           <div className="h-8 w-px bg-border"></div>
           
-          <div className="flex items-center gap-2 px-4 min-w-[120px]">
-            <Calendar className="h-4 w-4 text-muted-foreground" />
-            <span className="text-sm text-foreground">{t('date')}</span>
-            <ChevronDown className="h-4 w-4 text-muted-foreground" />
+
+          <div className="flex items-center gap-2 px-4 min-w-[180px] relative">
+            <button
+              className="flex items-center gap-2 text-sm text-foreground hover:text-primary transition-colors"
+              onClick={() => setShowCalendar((v) => !v)}
+            >
+              <CalendarIcon className="h-4 w-4 text-muted-foreground" />
+              <span>{selectedDate ? selectedDate.toLocaleDateString() : t('date')}</span>
+              <ChevronDown className="h-4 w-4 text-muted-foreground" />
+            </button>
+            {showCalendar && (
+              <div className="absolute top-10 left-0 z-30 bg-white rounded-lg shadow-lg p-4">
+                <div className="text-gray-800">
+                  <Calendar
+                    mode="single"
+                    selected={selectedDate}
+                    onSelect={setSelectedDate}
+                    onDayClick={() => setShowCalendar(false)}
+                  />
+                </div>
+                <div className="flex gap-2 mt-2">
+                  <button onClick={() => setDurationFilter('exact')} className={`px-2 py-1 rounded ${durationFilter==='exact'?'bg-primary text-white':'bg-gray-200 text-gray-800'}`}>Exact dates</button>
+                  <button onClick={() => setDurationFilter('+1')} className={`px-2 py-1 rounded ${durationFilter==='+1'?'bg-primary text-white':'bg-gray-200 text-gray-800'}`}>+1 Day</button>
+                  <button onClick={() => setDurationFilter('+5')} className={`px-2 py-1 rounded ${durationFilter==='+5'?'bg-primary text-white':'bg-gray-200 text-gray-800'}`}>+5 Days</button>
+                  <button onClick={() => setDurationFilter('+15')} className={`px-2 py-1 rounded ${durationFilter==='+15'?'bg-primary text-white':'bg-gray-200 text-gray-800'}`}>+15 Days</button>
+                </div>
+                <div className="flex justify-end mt-2">
+                  <button onClick={() => setShowCalendar(false)} className="px-3 py-1 bg-primary text-white rounded">Apply</button>
+                </div>
+              </div>
+            )}
           </div>
           
           <div className="h-8 w-px bg-border"></div>
@@ -70,7 +102,10 @@ const HeroSection = () => {
                   <button
                     key={category}
                     className="block w-full text-left px-4 py-2 text-sm text-foreground hover:bg-secondary transition-colors"
-                    onClick={() => setShowCategories(false)}
+                    onClick={() => {
+                      setSelectedCategory(category);
+                      setShowCategories(false);
+                    }}
                   >
                     {t(category)}
                   </button>
@@ -82,6 +117,11 @@ const HeroSection = () => {
           <Button className="bg-primary hover:bg-primary-hover text-primary-foreground rounded-full px-8 font-semibold">
             {t('search')}
           </Button>
+          {/*
+            TODO: On search, filter trips based on durationFilter:
+            - If durationFilter is '+5', only show trips with duration > 5 days
+            - This requires trip data to have a duration property
+          */}
         </div>
       </div>
     </section>

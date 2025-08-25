@@ -11,6 +11,32 @@ node_modules
 dist
 dist-ssr
 *.local
+# Environment variables
+.env
+.env.*
+*.env
+*.env.*
+# sensitive files
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+*.bak
+*.log
+*.sqlite
+*.db
+*.DS_Store
+/.vscode
+/.idea
+/.history
+/.next
+/.vercel
+/.output
+dist
+build
+coverage
+*.local
 
 # Editor directories and files
 .vscode/*
@@ -22,3 +48,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment variables
+.env
+.env.local

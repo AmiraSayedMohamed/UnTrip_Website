@@ -5,52 +5,8 @@ import ExperienceCard from './ExperienceCard';
 import pyramidsImg from '@/assets/experience-pyramids.jpg';
 import bazaarImg from '@/assets/experience-bazaar.jpg';
 
-const ExperienceSection = () => {
+const ExperienceSection = ({ experiences }: { experiences: any[] }) => {
   const { t } = useLanguage();
-
-  const experiences = [
-    {
-      title: "Desert Safari by Quad Bike around Pyramids (Sunset or Sunrise)",
-      location: "Cairo, Egypt",
-      duration: "4H",
-      price: 40,
-      currency: "$",
-      image: pyramidsImg,
-      rating: 4.9,
-      reviewCount: 125
-    },
-    {
-      title: "Half Day Tour To Abdeen Palace in Cairo",
-      location: "Cairo, Egypt", 
-      duration: "4H",
-      price: 36,
-      currency: "$",
-      image: bazaarImg,
-      rating: 4.7,
-      reviewCount: 89
-    },
-    {
-      title: "El-Moez Street and Khan Khalili Bazaar",
-      location: "Cairo, Egypt",
-      duration: "4H", 
-      price: 40,
-      currency: "$",
-      image: bazaarImg,
-      rating: 4.8,
-      reviewCount: 156
-    },
-    {
-      title: "Old Cairo and Khan El Khalili Bazaar",
-      location: "Cairo, Egypt",
-      duration: "4H",
-      price: 40,
-      currency: "$", 
-      image: pyramidsImg,
-      rating: 4.6,
-      reviewCount: 203
-    }
-  ];
-
   return (
     <section className="py-16 px-6 bg-background">
       <div className="max-w-7xl mx-auto">
@@ -73,6 +29,7 @@ const ExperienceSection = () => {
           {experiences.map((experience, index) => (
             <ExperienceCard
               key={index}
+              id={index}
               {...experience}
             />
           ))}
